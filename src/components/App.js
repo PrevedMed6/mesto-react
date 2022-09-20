@@ -50,40 +50,29 @@ function App() {
 
   return (
   <div className='page__content'>
-    <PopupWithForm name='editForm' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
-      <form className="popup__form" name="editForm" noValidate>
+    <PopupWithForm name='editForm' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} buttonText='Отправить'>
         <fieldset className="popup__input-container">
           <input type="text" className="popup__input" name="name" id="nameInput" placeholder = "Как вас зовут?" minLength="2" maxLength="40" required />
           <span className="popup__error" id="nameInput-error"></span>
           <input type="text" className="popup__input" name="job" id="jobInput" placeholder="Чем вы занимаетесь?"  minLength="2" maxLength="200" required />
           <span className="popup__error" id="jobInput-error"></span>
         </fieldset>
-        <button type="submit" className="popup__button">Отправить</button>
-      </form>
     </PopupWithForm>
-    <PopupWithForm name='addCardForm' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
-      <form className="popup__form" name="addCardForm" noValidate>
+    <PopupWithForm name='addCardForm' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText='Создать'>
         <fieldset className="popup__input-container">
           <input type="text" className="popup__input" name="name" id="cardName" placeholder = "Название"  minLength="2" maxLength="30" required />
           <span className="popup__error" id="cardName-error"></span>
           <input type="url" className="popup__input" name="link" id="cardLink" placeholder="Ссылка на картинку" required />
           <span className="popup__error" id="cardLink-error"></span>
         </fieldset>
-        <button type="submit" className="popup__button popup__button_disabled">Создать</button>
-      </form>
     </PopupWithForm>
-    <PopupWithForm name='editAvatarForm' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
-      <form className="popup__form" name="editAvatarForm" noValidate>
+    <PopupWithForm name='editAvatarForm' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} buttonText='Сохранить'>
         <fieldset className="popup__input-container">
           <input type="url" className="popup__input" name="avatar" id="avatarLink" placeholder="Ссылка на аватар" required />
           <span className="popup__error" id="avatarLink-error"></span>
         </fieldset>
-        <button type="submit" className="popup__button popup__button_disabled">Сохранить</button>
-      </form>
     </PopupWithForm>
-    <PopupWithForm name='noForm' title='Вы уверены?'>
-      <button type="button" className="popup__button popup__button_isconfirm">Да</button>
-    </PopupWithForm>
+    <PopupWithForm name='noForm' title='Вы уверены?' buttonText='Да' />
     <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
     <Header />
     <Main onEditProfile={handleEditProfileClick} onAddPlace ={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick}

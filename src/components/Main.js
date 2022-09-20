@@ -40,8 +40,8 @@ export default function Main(props){
       </section>
       <section className="elements centred-block" aria-label="Фотогалерея">
         <ul className="elements__grid">
-          {cards.map((card, i) => (
-           <Card card={card} key={i} onCardClick={props.onCardClick}/>
+          {cards.map((card) => (
+           <Card card={card} key={card._id} onCardClick={props.onCardClick}/>
           ))}
         </ul>
       </section>
