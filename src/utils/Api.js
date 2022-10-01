@@ -70,7 +70,8 @@ class Api {
     });
   }
 
-  toggleLikes(cardId, method){
+  toggleLikes(cardId, usePut){
+    const method = usePut? 'PUT':'DELETE';
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: method,
       headers: this._headers,
